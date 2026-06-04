@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduVerify - Teknik Verifikasi</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/icon-eduverify.png" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.2/dist/aos.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @font-face {
+            font-family: "Poppins";
+            src: url("./assets/fonts/Poppins-Medium.ttf") format("truetype");
+            font-weight: 500;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("./assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+            font-weight: 600;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: "Poppins";
+            src: url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @theme {
+            --font-sans: "Poppins", sans-serif;
+
+            --color-primary: #0B3B37;
+            --color-secondary: #F59E0B;
+            --color-background-light: #F0FAF8;
+            --color-background-soft-primary: #E1F4F1;
+            --color-text-dark: #718684;
+            --color-text-light-gray: #D5D5D5;
+            --color-text-light: #96B0AD;
+            --color-neutral: #FEF3C7;
+            --color-success: #10B981;
+            --color-error: #EF4444;
+        }
+  </style>
+</head>
+
+<body class="bg-primary text-text-light min-h-screen text-sm sm:text-base xl:text-lg">
+    <!-- Navigation -->
+    <nav id="navbar"
+        class="bg-transparent fixed flex justify-between items-center inset-x-0 h-20 sm:h-24 px-8 sm:px-28 xl:px-32 py-3 border-b border-transparent z-50 font-semibold transition-all duration-300 [.scrolled]:bg-white [.scrolled]:border-text-light-gray [.scrolled]:shadow-md">
+
+        <img src="./assets/images/logo-eduverify(white).png" alt="Logo EduVerify"
+            class="w-46.25 sm:w-58.75 h-auto block [nav.scrolled_&]:hidden">
+        <img src="./assets/images/logo-eduverify.png" alt="Logo EduVerify"
+            class="w-46.25 sm:w-58.75 h-auto hidden [nav.scrolled_&]:block">
+
+        <button id="menu-toggle"
+            class="lg:hidden relative w-8 h-8 z-50 cursor-pointer flex items-center justify-center">
+            <span
+                class="absolute w-6 h-0.5 bg-white [nav.scrolled_&]:bg-primary transition-all duration-300 -translate-y-2 [button.open_&]:translate-y-0 [button.open_&]:rotate-45"></span>
+            <span
+                class="absolute w-6 h-0.5 bg-white [nav.scrolled_&]:bg-primary transition-all duration-300 [button.open_&]:opacity-0"></span>
+            <span
+                class="absolute w-6 h-0.5 bg-white [nav.scrolled_&]:bg-primary transition-all duration-300 translate-y-2 [button.open_&]:translate-y-0 [button.open_&]:-rotate-45"></span>
+        </button>
+
+        <ul id="nav-menu"
+            class="max-lg:absolute max-sm:top-20 max-lg:top-24 max-lg:left-0 max-lg:w-full max-lg:flex-col max-lg:bg-white max-lg:py-6 max-lg:px-8 max-lg:shadow-md max-lg:pointer-events-none max-lg:opacity-0 max-lg:-translate-y-5 max-lg:transition-all max-lg:duration-300 [.open]:max-lg:pointer-events-auto [.open]:max-lg:opacity-100 [.open]:max-lg:translate-y-0 flex justify-center items-center max-lg:gap-4 gap-2">
+
+            <li>
+                <a href="index.html#hero"
+                    class="nav-link relative p-2 lg:max-xl:px-1 transition-colors duration-300 hover:text-white [nav.scrolled_&]:text-text-dark [nav.scrolled_&]:hover:text-primary before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-full before:border-b-2 before:border-secondary before:rounded-b-md before:translate-y-2 before:opacity-0 before:transition-all before:duration-300 hover:before:translate-y-0 hover:before:opacity-100 [.active]:before:translate-y-0 [.active]:before:opacity-100">
+                    Beranda
+                </a>
+            </li>
+            <li>
+                <a href="index.html#problem"
+                    class="nav-link relative p-2 lg:max-xl:px-1 transition-colors duration-300 hover:text-white [nav.scrolled_&]:text-text-dark [nav.scrolled_&]:hover:text-primary before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-full before:border-b-2 before:border-secondary before:rounded-b-md before:translate-y-2 before:opacity-0 before:transition-all before:duration-300 hover:before:translate-y-0 hover:before:opacity-100 [.active]:before:translate-y-0 [.active]:before:opacity-100">
+                    Realita
+                </a>
+            </li>
+            <li>
+                <a href="index.html#course"
+                    class="nav-link relative p-2 lg:max-xl:px-1 transition-colors duration-300 hover:text-white [nav.scrolled_&]:text-text-dark [nav.scrolled_&]:hover:text-primary before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-full before:border-b-2 before:border-secondary before:rounded-b-md before:translate-y-2 before:opacity-0 before:transition-all before:duration-300 hover:before:translate-y-0 hover:before:opacity-100 [.active]:before:translate-y-0 [.active]:before:opacity-100">
+                    Solusi
+                </a>
+            </li>
+            <li>
+                <a href="index.html#about"
+                    class="nav-link relative p-2 lg:max-xl:px-1 transition-colors duration-300 hover:text-white [nav.scrolled_&]:text-text-dark [nav.scrolled_&]:hover:text-primary before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-full before:border-b-2 before:border-secondary before:rounded-b-md before:translate-y-2 before:opacity-0 before:transition-all before:duration-300 hover:before:translate-y-0 hover:before:opacity-100 [.active]:before:translate-y-0 [.active]:before:opacity-100">
+                    Tentang
+                </a>
+            </li>
+            <li class="max-lg:mt-2">
+                <a href="#"
+                    class="group bg-secondary text-white flex items-center justify-center gap-2 px-6 py-3 rounded-md shadow-md transition-transform duration-300 lg:hover:scale-102 ml-2 max-lg:ml-0">
+                    Mulai Belajar
+                    <i class="bx bx-book-open text-lg transition-transform duration-300 lg:group-hover:scale-125"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="grow *:px-8 *:py-14 *:sm:p-28 *:xl:p-32 *:overflow-hidden">
+        <!-- Hero Section -->
+        <section class="relative flex flex-col gap-y-10 py-32! lg:pb-48! xl:pb-64!">
+            <div data-aos="fade-right"
+                class="flex justify-center lg:justify-start items-center gap-0.5 text-xs sm:text-sm xl:text-base">
+                <a href="index.html#hero">Beranda</a>
+                <i class="bx bx-chevron-right"></i>
+                <p class="font-semibold text-secondary">Materi Teknik Verifikasi</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-x-8 gap-y-10">
+                <div data-aos="fade-left" class="max-h-80 shadow-md rounded-xl overflow-hidden order-1 lg:order-2">
+                    <img src="./assets/images/course2-image.webp" alt="Hero Image"
+                        class="w-full h-full object-cover select-none pointer-events-none" />
+                </div>
+                <div data-aos="fade-right"
+                    class="flex flex-col justify-center items-center lg:items-start gap-y-4 text-center lg:text-left order-2 lg:order-1">
+                    <p
+                        class="bg-neutral text-secondary w-fit px-6 py-2 rounded-full font-semibold text-xs sm:text-sm xl:text-base">
+                        Materi 2
+                    </p>
+                    <h1
+                        class="text-white font-bold text-[2.125rem]/tight sm:text-4xl/tight xl:text-5xl/tight [@media(min-width:1440px)]:text-[3.5rem]/tight">
+                        Teknik Verifikasi
+                    </h1>
+                    <p class="max-w-110 lg:max-w-120">
+                        Kuasai metode verifikasi informasi yang digunakan para jurnalis
+                        profesional.
+                    </p>
+                    <div class="grid auto-rows-fr grid-cols-3 gap-6 mt-6 max-w-110 lg:max-w-120">
+                        <div class="flex flex-col gap-y-2">
+                            <p class="text-xs sm:text-sm xl:text-base whitespace-nowrap"><span
+                                    class="block text-secondary font-bold text-3xl sm:text-4xl">5</span>Poin Penting</p>
+                        </div>
+                        <div class="flex flex-col gap-y-2">
+                            <p class="text-xs sm:text-sm xl:text-base whitespace-nowrap"><span
+                                    class="block text-secondary font-bold text-3xl sm:text-4xl">1</span>Studi Kasus</p>
+                        </div>
+                        <div class="flex flex-col gap-y-2">
+                            <p class="text-xs sm:text-sm xl:text-base whitespace-nowrap"><span
+                                    class="block text-secondary font-bold text-3xl sm:text-4xl">5</span>Soal Latihan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <svg viewBox="0 128 1440 192" xmlns="http://www.w3.org/2000/svg"
+                class="absolute inset-x-0 -bottom-0.5 w-full h-auto -z-10">
+                <path fill="#F0FAF8" fill-opacity="1"
+                    d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+            </svg>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="bg-background-light text-text-dark flex flex-col gap-y-10 pt-10!">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10">
+                <div data-aos="fade-right" class="flex flex-col justify-center gap-y-4">
+                    <h2
+                        class="text-primary font-bold text-left text-[1.750rem]/tight sm:text-3xl/tight xl:text-4xl/tight [@media(min-width:1440px)]:text-5xl/tight">
+                        Verifikasi Sebelum<br />Kamu <span class="text-secondary">Percaya</span>.
+                    </h2>
+                    <p class="xl:w-11/12">Verifikasi adalah proses memeriksa kebenaran sebuah informasi
+                        sebelum dipercaya atau disebarkan.
+                        Di era digital,
+                        siapapun bisa membuat dan menyebarkan informasi, maka kemampuan memverifikasi adalah
+                        keterampilan wajib generasi
+                        kritis.</p>
+                </div>
+                <div data-aos="fade-left"
+                    class="bg-[url(./assets/images/course2-overview-image.webp)] bg-cover bg-center bg-no-repeat min-h-60 max-h-60 lg:min-h-100 lg:max-h-100 shadow-md rounded-xl overflow-hidden">
+                </div>
+            </div>
+            <p data-aos="fade-right" class="font-semibold text-primary italic text-base sm:text-lg xl:text-xl">
+                <q>Lalu, bagaimana cara memverifikasinya?</q>
+            </p>
+            <div class="bg-text-light grid auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-px">
+                <div class="lg:col-span-2 bg-background-light">
+                    <div data-aos="zoom-in" class="flex flex-col gap-y-2 py-4 md:p-4">
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="bg-secondary text-white flex shrink-0 justify-center items-center w-10 h-10 rounded-full">
+                                <i class="bx bx-scan text-lg"></i>
+                            </div>
+                            <h3 class="text-primary font-bold text-xl/tight xl:text-2xl/tight whitespace-nowrap">Lacak
+                                Foto
+                            </h3>
+                        </div>
+                        <p>Gunakan Google Images untuk melacak dan mencari tahu asal-usul asli suatu gambar tersebut.
+                        </p>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 bg-background-light">
+                    <div data-aos="zoom-in" data-aos-delay="100" class="flex flex-col gap-y-2 py-4 md:p-4">
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="bg-secondary text-white flex shrink-0 justify-center items-center w-10 h-10 rounded-full">
+                                <i class="bx bx-link text-lg"></i>
+                            </div>
+                            <h3 class="text-primary font-bold text-xl/tight xl:text-2xl/tight whitespace-nowrap">Periksa
+                                Sumber</h3>
+                        </div>
+                        <p>Periksa link alamat website tersebut, pastikan tidak meniru suatu media berita yang resmi.
+                        </p>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 bg-background-light">
+                    <div data-aos="zoom-in" data-aos-delay="200" class="flex flex-col gap-y-2 py-4 md:p-4">
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="bg-secondary text-white flex shrink-0 justify-center items-center w-10 h-10 rounded-full">
+                                <i class="bx bx-news text-lg"></i>
+                            </div>
+                            <h3 class="text-primary font-bold text-xl/tight xl:text-2xl/tight whitespace-nowrap">
+                                Bandingkan
+                                Berita</h3>
+                        </div>
+                        <p>Cari judul itu di Google Search untuk melihat apakah media resmi lainnya turut menulisnya.
+                        </p>
+                    </div>
+                </div>
+                <div class="lg:col-span-3 bg-background-light">
+                    <div class="flex flex-col lg:items-end py-4 md:p-4 lg:p-0">
+                        <div data-aos="zoom-in" data-aos-delay="300" class="lg:w-2/3 lg:p-4 flex flex-col gap-y-2">
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="bg-secondary text-white flex shrink-0 justify-center items-center w-10 h-10 rounded-full">
+                                    <i class="bx bx-calendar-check text-lg"></i>
+                                </div>
+                                <h3 class="text-primary font-bold text-xl/tight xl:text-2xl/tight whitespace-nowrap">Cek
+                                    Tanggal</h3>
+                            </div>
+                            <p>Periksa tanggal terbit suatu artikel guna memastikan informasi tersebut bukan berita
+                                lama.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-2 lg:col-span-3 bg-background-light">
+                    <div class="flex flex-col md:max-lg:items-center py-4 md:p-4 lg:p-0">
+                        <div data-aos="zoom-in" data-aos-delay="400"
+                            class="md:w-1/2 lg:w-2/3 lg:p-4 flex flex-col gap-y-2">
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="bg-secondary text-white flex shrink-0 justify-center items-center w-10 h-10 rounded-full">
+                                    <i class="bx bx-check-shield text-lg"></i>
+                                </div>
+                                <h3 class="text-primary font-bold text-xl/tight xl:text-2xl/tight whitespace-nowrap">
+                                    Konsultasi Fakta
+                                </h3>
+                            </div>
+                            <p>Cek situs Turnbackhoax.id atau Cekfakta.com untuk mencari hasil verifikasi klaim
+                                tersebut.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Study Case Section -->
+        <section class="relative flex flex-col gap-y-10">
+            <h2 data-aos="fade-left"
+                class="text-white font-bold text-left lg:text-right text-[1.750rem]/tight sm:text-3xl/tight xl:text-4xl/tight [@media(min-width:1440px)]:text-5xl/tight">
+                Lihat Sendiri Bukti Hoaks<br />yang Pernah <span class="text-secondary">Viral</span>.
+            </h2>
+            <div data-aos="zoom-in"
+                class="bg-white/10 relative grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-x-8 gap-y-4 p-4 border border-white/20 rounded-xl">
+                <div class="min-h-60 max-h-60 lg:min-h-100 lg:max-h-100 h-full rounded-xl overflow-hidden">
+                    <img src="./assets/images/course2-studycase-image.webp" alt="Studi Kasus"
+                        class="w-full h-full object-cover object-top-left select-none pointer-events-none">
+                </div>
+                <div class="flex flex-col gap-y-4 pb-14">
+                    <p
+                        class="bg-error text-white w-fit px-6 py-2 rounded-full font-semibold text-xs sm:text-sm xl:text-base">
+                        HOAKS TERBUKTI
+                    </p>
+                    <h3 class="text-white font-bold text-xl/tight xl:text-2xl/tight">Penyembuhan Virus Corona dengan
+                        Bawang Putih</h3>
+                    <blockquote
+                        cite="https://www.komdigi.go.id/berita/berita-hoaks/detail/hoaks-penyembuhan-virus-corona-dengan-bawang-putih">
+                        <p>“Beredar informasi di media sosial mengenai tata cara mengolah bawang
+                            putih yang diklaim
+                            ampuh menyembuhkan virus corona.
+                            Faktanya, para ahli medis dan Kementerian Kesehatan menegaskan klaim tersebut tidak benar
+                            (hoaks), karena saat itu belum
+                            ada obat atau vaksin yang teruji secara klinis mampu menyembuhkan virus corona strain baru
+                            tersebut.”</p>
+
+                        <footer class="mt-6 font-semibold text-white text-xs sm:text-sm xl:text-base">
+                            — Dikutip dari artikel <cite>KOMDIGI</cite> <span
+                                class="text-text-light-gray font-normal italic text-xs sm:text-sm">(telah
+                                diringkas)</span>
+                        </footer>
+                    </blockquote>
+                    <a href="https://www.komdigi.go.id/berita/berita-hoaks/detail/hoaks-penyembuhan-virus-corona-dengan-bawang-putih"
+                        target="_blank"
+                        class="group/btn bg-primary text-secondary absolute -bottom-0.5 -right-0.5 flex items-center gap-2 px-6 py-3 w-fit rounded-tl-xl">
+                        Baca artikel asli
+                        <i
+                            class="bx bx-right-arrow-alt text-lg transition-transform duration-300 lg:group-hover/btn:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+            <p data-aos="fade-right" class="font-semibold text-white text-base sm:text-lg xl:text-xl">Mari kita
+                verifikasi satu per satu.</p>
+            <div class="bg-text-dark grid auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-px">
+                <div class="bg-primary lg:col-span-2">
+                    <div data-aos="zoom-in" class="flex flex-col gap-y-2 py-4 md:p-4">
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="bg-secondary text-white flex shrink-0 justify-center items-center w-10 h-10 rounded-full">
+                                <i class="bx bx-scan text-lg"></i>
+                            </div>
+                            <h3 class="text-white font-bold text-xl/tight xl:text-2xl/tight whitespace-nowrap">Lacak
+                                Foto
+                            </h3>
+                        </div>
+                        <p>Hasil lacak media menunjukkan konten berasal dari akun personal, bukan lembaga medis resmi.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-primary lg:col-span-2">
+                    <div data-aos="zoom-in" data-aos-delay="100" class="flex flex-col gap-y-2 py-4 md:p-4">
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="bg-secondary text-white flex shrink-0 justify-center items-center w-10 h-10 rounded-full">
+                                <i class="bx bx-link text-lg"></i>
+                            </div>
+                            <h3 class="text-white font-bold text-xl/tight xl:text-2xl/tight whitespace-nowrap">Periksa
+                                Sumber</h3>
+                        </div>
+                        <p>Kemenkes menegaskan bahwa klaim pengobatan ini tidak bersumber dari data klinis yang sah.</p>
+                    </div>
+                </div>
+                <div class="bg-primary lg:col-span-2">
+                    <div data-aos="zoom-in" data-aos-delay="200" class="flex flex-col gap-y-2 py-4 md:p-4">
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="bg-secondary text-white flex shrink-0 justify-center items-center w-10 h-10 rounded-full">
+                                <i class="bx bx-news text-lg"></i>
+                            </div>
+                            <h3 class="text-white font-bold text-xl/tight xl:text-2xl/tight whitespace-nowrap">
+                                Bandingkan
+                                Berita</h3>
+                        </div>
+                        <p>Media resmi tidak ada membenarkan klaim khasiat penyembuhan virus corona dari bawang putih.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-primary lg:col-span-3">
+                    <div class="flex flex-col lg:items-end py-4 md:p-4 lg:p-0">
+                        <div data-aos="zoom-in" data-aos-delay="300" class="lg:w-2/3 lg:p-4 flex flex-col gap-y-2">
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="bg-secondary text-white flex shrink-0 justify-center items-center w-10 h-10 rounded-full">
+                                    <i class="bx bx-calendar-check text-lg"></i>
+                                </div>
+                                <h3 class="text-white font-bold text-xl/tight xl:text-2xl/tight whitespace-nowrap">Cek
+                                    Tanggal</h3>
+                            </div>
+                            <p>Pada saat info beredar, terbukti belum ada obat ataupun vaksin corona yang lolos uji
+                                klinis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-primary md:col-span-2 lg:col-span-3">
+                    <div class="flex flex-col md:max-lg:items-center py-4 md:p-4 lg:p-0">
+                        <div data-aos="zoom-in" data-aos-delay="400"
+                            class="md:w-1/2 lg:w-2/3 lg:p-4 flex flex-col gap-y-2">
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="bg-secondary text-white flex shrink-0 justify-center items-center w-10 h-10 rounded-full">
+                                    <i class="bx bx-check-shield text-lg"></i>
+                                </div>
+                                <h3 class="text-white font-bold text-xl/tight xl:text-2xl/tight whitespace-nowrap">
+                                    Konsultasi Fakta
+                                </h3>
+                            </div>
+                            <p>Fakta resmi dari Komdigi dan para ahli medis menyatakan klaim obat bawang putih ini
+                                terbukti
+                                hoaks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Section -->
+        <section id="latihan"
+            class="bg-background-light text-text-dark relative flex flex-col items-center gap-y-10 sm:pb-48!">
+            <div data-aos="fade-up" class="flex flex-col items-center gap-y-4">
+                <h2
+                    class="text-primary font-bold text-center text-[1.750rem]/tight sm:text-3xl/tight xl:text-4xl/tight [@media(min-width:1440px)]:text-5xl/tight">
+                    Uji Kemampuan<br /><span class="text-secondary">Teknik Verifikasi</span>.
+                </h2>
+                <p class="lg:max-w-2/3 text-center">Baca tiap klaim berikut. Gunakan 5 teknik verifikasi yang baru kamu
+                    pelajari, apakah ini <strong>Hoaks</strong> atau <strong>Fakta</strong>?
+                </p>
+            </div>
+            <div data-aos="zoom-in" class="flex flex-col items-center gap-y-10">
+                <div id="tv-progress-wrap" class="w-full max-w-xl">
+                    <div class="flex justify-between text-xs sm:text-sm mb-2 text-text-dark font-semibold">
+                        <span id="tv-progress-label">Soal 1 dari 5</span>
+                        <span id="tv-score-label" class="text-secondary">Skor: 0</span>
+                    </div>
+                    <div class="w-full bg-text-light-gray rounded-full h-2">
+                        <div id="tv-progress-bar" class="bg-secondary h-2 rounded-full transition-all duration-500"
+                            style="width: 20%"></div>
+                    </div>
+                </div>
+                <div id="tv-card-container" class="relative w-full max-w-xl min-h-72">
+                    <div id="tv-card"
+                        class="bg-primary border rounded-2xl shadow-md p-6 sm:p-8 flex flex-col gap-y-4 transition-all duration-300">
+                        <span id="tv-badge"
+                            class="bg-neutral text-secondary w-fit px-4 py-1 rounded-full text-xs sm:text-sm font-semibold"></span>
+                        <h3 id="tv-headline" class="text-white font-bold text-xl/tight xl:text-2xl/tight"></h3>
+                        <p id="tv-desc" class="text-text-light"></p>
+                        <div id="tv-buttons" class="flex gap-4 mt-6">
+                            <button onclick="tvJawab('hoaks')"
+                                class="flex justify-center items-center gap-2 w-full bg-error/20 text-error border-2 border-error/30 hover:bg-error hover:text-white font-semibold px-6 py-3 rounded-md transition-all duration-300 cursor-pointer">
+                                HOAKS<i class="bx bx-shield-x"></i>
+                            </button>
+                            <button onclick="tvJawab('fakta')"
+                                class="flex justify-center items-center gap-2 w-full bg-success/20 text-success border-2 border-success/30 hover:bg-success hover:text-white font-semibold px-6 py-3 rounded-md transition-all duration-300 cursor-pointer">
+                                FAKTA<i class="bx bx-check-shield"></i>
+                            </button>
+                        </div>
+                        <div id="tv-feedback" class="hidden flex-col gap-y-3 border-t border-text-light-gray pt-4 mt-2">
+                            <p id="tv-feedback-status"></p>
+                            <p id="tv-feedback-reason" class="text-text-light text-xs sm:text-sm xl:text-base"></p>
+                            <button onclick="tvNext()"
+                                class="group/btn text-secondary flex items-center self-end gap-2 w-fit cursor-pointer">
+                                Lanjut<i
+                                    class="bx bx-arrow-right-stroke text-lg transition-transform duration-300 lg:group-hover/btn:translate-x-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="tv-result"
+                    class="hidden bg-primary border rounded-2xl shadow-md p-6 sm:p-8 flex flex-col items-center gap-y-4 relative w-full max-w-lg min-h-72 text-center transition-all duration-300">
+                    <i id="tv-result-icon" class="text-secondary text-6xl"></i>
+                    <h3 class="text-white font-bold text-2xl sm:text-3xl" id="tv-result-title"></h3>
+                    <p class="text-text-dark" id="tv-result-desc"></p>
+                    <div class="bg-background-light rounded-xl px-8 py-4">
+                        <p class="text-secondary font-bold text-4xl sm:text-5xl" id="tv-result-score"></p>
+                        <p class="text-text-dark text-sm mt-1">dari 5 jawaban benar</p>
+                    </div>
+                    <button onclick="tvReset()"
+                        class="group bg-secondary text-white flex items-center justify-center gap-2 px-6 py-3 mt-6 rounded-md shadow-md transition-transform duration-300 lg:hover:scale-102 cursor-pointer">
+                        Coba Lagi<i class="bx bx-refresh-ccw"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pre-Footer -->
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-10 mt-10 w-full">
+                <a href="index.html" class="group/btn text-secondary flex items-center gap-2 order-2 lg:order-1">
+                    <i
+                        class="bx bx-left-arrow-alt text-lg transition-transform duration-300 lg:group-hover/btn:-translate-x-1"></i>Kembali
+                    ke Beranda
+                </a>
+                <div class="flex flex-col items-center gap-1 text-center order-2 lg:order-1">
+                    <p class="text-sm text-muted">Lanjut Jelajahi Materi</p>
+                    <div class="flex items-center gap-3">
+                        <a href="detektif-digital.html" class="text-secondary font-semibold underline">Detektif
+                            Digital</a>
+                        <span class="text-muted">·</span>
+                        <a href="psikologi-hoaks.html" class="text-secondary font-semibold underline">Psikologi
+                            Hoaks</a>
+                    </div>
+                </div>
+            </div>
+            <svg viewBox="0 128 1440 192" xmlns="http://www.w3.org/2000/svg"
+                class="absolute inset-x-0 -bottom-0.5 w-full h-auto z-0!">
+                <path fill="#0B3B37" fill-opacity="1"
+                    d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+            </svg>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+        class="bg-primary text-text-light flex flex-col gap-y-10 px-8 py-10! sm:p-28 xl:p-32 text-center lg:text-left">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_max-content] gap-x-8 gap-y-10">
+            <div class="sm:max-lg:col-span-2 flex flex-col items-center lg:items-start gap-y-4">
+                <img src="./assets/images/logo-eduverify(white).png" alt="Logo EduVerify" class="w-80">
+                <p class="max-w-140">Platform edukasi literasi digital yang hadir untuk melawan hoaks melalui
+                    materi interaktif dan latihan berpikir kritis
+                    bagi generasi muda Indonesia.</p>
+            </div>
+            <div class="sm:max-lg:row-start-2 flex flex-col items-center gap-y-4">
+                <h3 class="text-white font-bold text-xl/tight xl:text-2xl/tight">Utama</h3>
+                <ul class="flex flex-col items-center gap-2">
+                    <li><a href="index.html#hero"
+                            class="transition-colors duration-300 lg:hover:text-secondary">Beranda</a></li>
+                    <li><a href="index.html#problem"
+                            class="transition-colors duration-300 lg:hover:text-secondary">Realita</a></li>
+                    <li><a href="index.html#course"
+                            class="transition-colors duration-300 lg:hover:text-secondary">Solusi</a></li>
+                    <li><a href="index.html#about"
+                            class="transition-colors duration-300 lg:hover:text-secondary">Tentang</a></li>
+                    <li><a href="#" class="transition-colors duration-300 lg:hover:text-secondary">Mulai Belajar</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sm:max-lg:row-start-2 flex flex-col items-center gap-y-4">
+                <h3 class="text-white font-bold text-xl/tight xl:text-2xl/tight">Solusi</h3>
+                <ul class="flex flex-col items-center gap-2">
+                    <li><a href="detektif-digital.html"
+                            class="transition-colors duration-300 lg:hover:text-secondary">Detektif Digital</a>
+                    </li>
+                    <li><a href="teknik-verifikasi.html"
+                            class="transition-colors duration-300 lg:hover:text-secondary">Teknik Verifikasi</a>
+                    </li>
+                    <li><a href="psikologi-hoaks.html"
+                            class="transition-colors duration-300 lg:hover:text-secondary">Psikologi Hoaks</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="flex flex-col lg:flex-row justify-between items-center gap-y-10 py-10 w-full border-text-dark border-t">
+            <ul class="flex items-center gap-x-6">
+                <li><a href="#"><i
+                            class="bx bxl-twitter text-3xl transition-colors duration-300 lg:hover:text-secondary"></i></a>
+                </li>
+                <li><a href="#"><i
+                            class="bx bx-at text-3xl transition-colors duration-300 lg:hover:text-secondary"></i></a>
+                </li>
+                <li><a href="#"><i
+                            class="bx bxl-instagram text-3xl transition-colors duration-300 lg:hover:text-secondary"></i></a>
+                </li>
+                <li><a href="#"><i
+                            class="bx bxl-facebook text-3xl transition-colors duration-300 lg:hover:text-secondary"></i></a>
+                </li>
+            </ul>
+            <p class="text-text-light max-sm:text-xs">&copy; 2026 EduVerify - Platform Edukasi Literasi Digital.</p>
+        </div>
+
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./assets/scripts/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.2/dist/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        AOS.init({
+            disable: 'mobile',
+            duration: 1000,
+            once: true
+        });
+
+        const tvSoal = [
+            {
+                badge: "Media Sosial",
+                headline: "Foto ini membuktikan banjir besar terjadi di Jakarta hari ini!",
+                desc: "Sebuah foto dramatis gedung-gedung terendam banjir viral di Twitter. Tidak ada keterangan lokasi atau tanggal pada foto tersebut.",
+                jawaban: "hoaks",
+                alasan: "Hoaks. Hasil lacak foto di Google Images menunjukkan foto itu berasal dari banjir di Thailand tahun 2011. Selalu lacak asal-usul foto sebelum percaya."
+            },
+            {
+                badge: "Berita",
+                headline: "Kompas.co (bukan .com) laporkan: Presiden Umumkan Libur Nasional Mendadak Besok!",
+                desc: "Artikel ini muncul dari domain 'kompas.co', bukan kompas.com yang resmi. Desainnya mirip, tapi alamatnya berbeda.",
+                jawaban: "hoaks",
+                alasan: "Hoaks. Domain 'kompas.co' bukan milik Kompas, ini situs tiruan. Selalu cek URL dengan teliti. Satu huruf perbedaan bisa berarti kamu sedang di situs palsu."
+            },
+            {
+                badge: "Sains",
+                headline: "Ilmuwan Temukan Planet Baru Seukuran Bumi di Tata Surya Kita!",
+                desc: "Klaim ini muncul hanya di satu blog pribadi. Setelah dicari di Google News, tidak ada satupun media sains besar seperti NASA, BBC Science, atau National Geographic yang meliputnya.",
+                jawaban: "hoaks",
+                alasan: "Hoaks. Penemuan sebesar ini pasti diliput semua media sains dunia. Jika hanya satu sumber yang memuat, itu tanda merah yang kuat."
+            },
+            {
+                badge: "Keamanan",
+                headline: "WASPADA: Penipuan Modus Baru Marak di ATM, Korban Sudah Ratusan!",
+                desc: "Artikel ini kembali viral di WhatsApp. Setelah dicek, artikel tersebut terbit pada tahun 2018 dan kasusnya sudah lama selesai ditangani polisi.",
+                jawaban: "hoaks",
+                alasan: "Hoaks (berita daur ulang). Informasinya sudah kadaluarsa dan tidak relevan sekarang. Berita lama yang disebar ulang tanpa tanggal adalah trik yang sangat umum."
+            },
+            {
+                badge: "Cek Fakta",
+                headline: "Turnbackhoax.id konfirmasi bahwa klaim 'Air Minum Kemasan Mengandung Plastik Berbahaya' terbukti menyesatkan.",
+                desc: "Situs Turnbackhoax.id, platform cek fakta resmi Kominfo, menerbitkan artikel yang menyatakan klaim tersebut dilebih-lebihkan dan tidak didukung data ilmiah yang valid.",
+                jawaban: "fakta",
+                alasan: "Fakta. Turnbackhoax.id adalah lembaga cek fakta resmi di bawah Kominfo. Hasil verifikasi dari sumber terpercaya ini adalah referensi yang valid dan bisa diandalkan."
+            }
+        ];
+
+        let tvIndex = 0;
+        let tvSkor = 0;
+        let tvSudahJawab = false;
+
+        function tvRender() {
+            const s = tvSoal[tvIndex];
+            document.getElementById('tv-badge').textContent = s.badge;
+            document.getElementById('tv-headline').textContent = s.headline;
+            document.getElementById('tv-desc').textContent = s.desc;
+            document.getElementById('tv-feedback').classList.add('hidden');
+            document.getElementById('tv-feedback').classList.remove('flex');
+            document.getElementById('tv-buttons').classList.remove('hidden');
+            document.getElementById('tv-progress-label').textContent = `Soal ${tvIndex + 1} dari ${tvSoal.length}`;
+            document.getElementById('tv-score-label').textContent = `Skor: ${tvSkor}`;
+            document.getElementById('tv-progress-bar').style.width = `${((tvIndex + 1) / tvSoal.length) * 100}%`;
+            tvSudahJawab = false;
+        }
+
+        function tvJawab(pilihan) {
+            if (tvSudahJawab) return;
+            tvSudahJawab = true;
+
+            const s = tvSoal[tvIndex];
+            const benar = pilihan === s.jawaban;
+            if (benar) tvSkor++;
+
+            const statusEl = document.getElementById('tv-feedback-status');
+            statusEl.innerHTML = benar
+                ? '<i class="bx bx-check-circle"></i> Benar!'
+                : '<i class="bx bx-x-circle"></i> Kurang tepat.';
+            statusEl.className = benar
+                ? 'flex items-center gap-2 font-bold text-success'
+                : 'flex items-center gap-2 font-bold text-error';
+
+            document.getElementById('tv-feedback-reason').textContent = s.alasan;
+            document.getElementById('tv-buttons').classList.add('hidden');
+            document.getElementById('tv-feedback').classList.remove('hidden');
+            document.getElementById('tv-feedback').classList.add('flex');
+            document.getElementById('tv-score-label').textContent = `Skor: ${tvSkor}`;
+        }
+
+        function tvNext() {
+            tvIndex++;
+            if (tvIndex >= tvSoal.length) {
+                tvTampilHasil();
+            } else {
+                tvRender();
+            }
+        }
+
+        function tvTampilHasil() {
+            document.getElementById('tv-card-container').classList.add('hidden');
+            document.getElementById('tv-progress-wrap').classList.add('hidden');
+            document.getElementById('tv-result').classList.remove('hidden');
+            document.getElementById('tv-result').classList.add('flex');
+
+            // icon Boxicons untuk tiap level
+            const hasil = [
+                { min: 0, max: 1, icon: 'bx bx-search-alt', title: 'Verifikator Pemula', desc: 'Jangan menyerah! Ulangi 5 langkah verifikasi dan coba lagi.' },
+                { min: 2, max: 3, icon: 'bx bx-news', title: 'Verifikator Terlatih', desc: 'Kamu sudah menguasai beberapa teknik. Terus asah kemampuanmu!' },
+                { min: 4, max: 4, icon: 'bx bx-check-double', title: 'Verifikator Handal', desc: 'Hampir sempurna! Hanya selangkah lagi menjadi yang terbaik.' },
+                { min: 5, max: 5, icon: 'bx bx-trophy', title: 'Jurnalis Digital Sejati!', desc: 'Luar biasa! Kamu memverifikasi seperti jurnalis profesional sungguhan.' }
+            ];
+            const h = hasil.find(x => tvSkor >= x.min && tvSkor <= x.max);
+            document.getElementById('tv-result-icon').className = `${h.icon} text-secondary text-6xl`;
+            document.getElementById('tv-result-title').textContent = h.title;
+            document.getElementById('tv-result-desc').textContent = h.desc;
+            document.getElementById('tv-result-score').textContent = `${tvSkor}/5`;
+        }
+
+        function tvReset() {
+            tvIndex = 0;
+            tvSkor = 0;
+            document.getElementById('tv-card-container').classList.remove('hidden');
+            document.getElementById('tv-progress-wrap').classList.remove('hidden');
+            document.getElementById('tv-result').classList.add('hidden');
+            document.getElementById('tv-result').classList.remove('flex');
+            tvRender();
+        }
+
+        tvRender();
+    </script>
+
+</body>
+
+</html>

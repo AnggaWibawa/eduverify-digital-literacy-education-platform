@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "aos": "^2.3.2",
+    "boxicons": "^2.1.4",
+    "tailwindcss": "^4.2.0"
+  }
+}
